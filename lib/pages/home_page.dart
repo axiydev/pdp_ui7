@@ -1,0 +1,307 @@
+import 'package:flutter/material.dart';
+class HomePage extends StatefulWidget {
+  static final String id="home_page";
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+    appBar:AppBar(
+      backgroundColor:Color(0xFF018197),
+      brightness:Brightness.light,
+      title:Row(
+        mainAxisAlignment:MainAxisAlignment.spaceBetween,
+        children:[
+          //#AMAZON LOGO
+          Container(
+            height:100,
+            child:Image.asset('assets/images/amazon_logo.png'),
+          ),
+          //#ICONS
+          Container(
+            height:100,
+            child:Row(
+              children:[
+                IconButton(
+                  icon:Icon(Icons.mic,color:Colors.white,size:25),
+                  onPressed:(){
+                    print('PRESSED');
+                  }
+                ),
+                IconButton(
+                  icon:Icon(Icons.shopping_cart,color:Colors.white,size:25),
+                  onPressed:(){
+                    print('PRESSED');
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      elevation:0.0,
+      bottomOpacity:0.0,
+    ),
+      drawer:Drawer(
+
+      ),
+      body:Container(
+        width:double.infinity,
+        child:Column(
+          children:[
+            Container(
+              color:Color(0xFF018197),
+              padding:EdgeInsets.only(left:10,right:10,bottom:10),
+              child:Container(
+                height:50,
+                decoration:BoxDecoration(
+                  borderRadius:BorderRadius.circular(5),
+                  color:Colors.white,
+                  border:Border.all(
+                    color:Colors.white,
+                    width:1,
+                  ),
+                ),
+                //#SEARCH ITEM
+                child:Row(
+                  children:[
+                    SizedBox(width:10),
+                    Expanded(
+                      child:TextField(
+                        decoration:InputDecoration(
+                          hintText:'What are you looking for?',
+                          hintStyle:TextStyle(color:Colors.grey,fontFamily:'Lato'),
+                          icon:Icon(Icons.search,color:Color(0xFF018197),),
+                          border:InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      icon:Icon(Icons.camera_alt,size:25,color:Color(0xFF018197),),
+                      onPressed:(){},
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //#ITEMS
+            Expanded(
+              child:Container(
+                color:Colors.grey[300],
+                child:ListView(
+                  children:[
+                    //DELIVER TEXT
+                    Container(
+                      height:45,
+                      color:Colors.blueGrey,
+                      padding:EdgeInsets.only(left:10,right:10),
+                      child:Row(
+                        children:[
+                          Icon(Icons.location_on_sharp,color:Colors.white,),
+                          SizedBox(width:10),
+                          Text('Deliver to Korea, Republic of',style:TextStyle(color:Colors.white,fontFamily:'Lato',fontSize:15),),
+                        ],
+                      ),
+                    ),
+                    //CAR IMAGE AND TEXT
+                    Container(
+                      height:140,
+                      color:Colors.white,
+                      child:Row(
+                        children:[
+                          Expanded(
+                            child:Container(
+                              height:140,
+                              decoration:BoxDecoration(
+                                image:DecorationImage(
+                                  image:AssetImage('assets/images/image_1.jpeg'),
+                                  fit:BoxFit.cover,
+                                ),
+                                borderRadius:BorderRadius.only(topRight: Radius.circular(70),bottomRight:Radius.circular(70),),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width:180,
+                            padding:EdgeInsets.all(20),
+                            child:Center(
+                              child:Text('We ship 45 million products',style:TextStyle(fontFamily:'Lato',fontSize:17),),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height:9),
+                    //BEST EXPERIENCE TEXT AND SIGN IN BUTTON
+                    Container(
+                      padding:EdgeInsets.all(15),
+                      height:160,
+                      color:Colors.white,
+                      child:Column(
+                        crossAxisAlignment:CrossAxisAlignment.start,
+                        mainAxisAlignment:MainAxisAlignment.center,
+                        children:[
+                          Text('Sign in for the best experiense',style:TextStyle(fontFamily:'Lato',fontSize:20)),
+                          SizedBox(height:15),
+                          Container(
+                            height:50,
+                            decoration:BoxDecoration(
+                              color:Colors.orange[400],
+                            ),
+                            child:Center(
+                              child:Text('Sign in',style:TextStyle(fontSize:18),),
+                            ),
+                          ),
+                          SizedBox(height:15),
+                          Text('Create an account',style:TextStyle(fontSize:18,color:Colors.lightBlueAccent),),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height:9),
+                    //DEAL OF DAILY
+                    Container(
+                      color:Colors.white,
+                      padding:EdgeInsets.all(15),
+                      child:Column(
+                        crossAxisAlignment:CrossAxisAlignment.start,
+                        mainAxisAlignment:MainAxisAlignment.center,
+                        children:[
+                          Text('Deal of the Day',style:TextStyle(fontFamily:'Lato',fontSize:23),),
+                          SizedBox(height:15),
+                          Image(
+                            image:AssetImage('assets/images/item_7.jpeg'),
+                            width:double.infinity,
+                            height:240,
+                            fit:BoxFit.cover,
+                          ),
+                          SizedBox(height:15),
+                          Text('Up to 31% off APC UPS Battery Back',style:TextStyle(fontFamily: 'Lato',fontSize:17,)),
+                          SizedBox(height:5),
+                          Text('\$10.99-\$79.9',style:TextStyle(fontFamily:'Lato',fontSize:16)),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height:9),
+                    //BEST SELLERS
+                    Container(
+                      color:Colors.white,
+                      padding:EdgeInsets.all(15),
+                      child:Column(
+                        crossAxisAlignment:CrossAxisAlignment.start,
+                        children:[
+                          Text('Best sellers in Electronics',style:TextStyle(fontFamily:'Lato',fontSize:23,),),
+                          SizedBox(height:15),
+                          Container(
+                            width: double.infinity,
+                            height:MediaQuery.of(context).size.width,
+                            child:Row(
+                              children:[
+                                Expanded(
+                                  child:Container(
+                                    child:Column(
+                                      children:[
+                                        Expanded(
+                                          child:Container(
+                                            child:Image.asset('assets/images/item_7.jpeg',fit:BoxFit.cover),
+                                          ),
+                                        ),
+                                        SizedBox(height:5),
+                                        Expanded(
+                                          child:Container(
+                                            child:Image.asset('assets/images/item_6.jpeg',fit:BoxFit.cover,),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width:5),
+                                Expanded(
+                                  child:Container(
+                                    child:Column(
+                                      children:[
+                                        Expanded(
+                                          child:Container(
+                                            child:Image.asset('assets/images/item_5.jpeg',fit:BoxFit.cover,),
+                                          ),
+                                        ),
+                                        SizedBox(height:5),
+                                        Expanded(
+                                          child:Container(
+                                            child:Image.asset('assets/images/item_4.jpeg',fit:BoxFit.cover),
+                                          ),
+                                        ),
+                                      ]
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height:9),
+                    //#TOP PRODUCT IN CAMERA
+                    Container(
+                      padding:EdgeInsets.all(15),
+                      color:Colors.white,
+                      child:Column(
+                        crossAxisAlignment:CrossAxisAlignment.start,
+                        children:[
+                          Text('Top product in Camera',style:TextStyle(fontFamily:'Lato',fontSize:23)),
+                          SizedBox(height:15),
+                          Container(
+                            height:MediaQuery.of(context).size.width,
+                            width:double.infinity,
+                            child:Column(
+                              children:[
+                                //#IMAGES
+                                Expanded(
+                                  child:Container(
+                                    width:double.infinity,
+                                    child:Image.asset('assets/images/item_7.jpeg',fit:BoxFit.cover,),
+                                  ),
+                                ),
+                                SizedBox(height:5),
+                                Expanded(
+                                  child:Container(
+                                    width:double.infinity,
+                                    child:Row(
+                                      children:[
+                                        Expanded(
+                                          child:Container(
+                                            height:double.infinity,
+                                            child:Image.asset('assets/images/item_3.jpeg',fit:BoxFit.cover,),
+                                          ),
+                                        ),
+                                        SizedBox(width:5),
+                                        Expanded(
+                                          child:Container(
+                                              height:double.infinity,
+                                              child:Image.asset('assets/images/item_2.jpeg',fit:BoxFit.cover,)
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
